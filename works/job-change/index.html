@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex,nofollow" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel&family=DotGothic16&family=Noto+Serif+JP:wght@200&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajaxzip3.github.io/ajaxzip3.js" charset="utf-8"></script>
+
+    <title>job change adventure</title>
+    <script>
+        $(function () {
+            //sticky navi
+            $(window).scroll(function () {
+                if ($(window).scrollTop() > 500) {
+                    $('.navi-wrapper').removeClass('navi-change');
+                } else {
+                    $('.navi-wrapper').addClass('navi-change');
+                }
+            });
+
+
+
+
+            //sticky naviの高さ分コンテンツを下げる
+            const height = $('.navi-wrapper').height();
+            $('main').css('margin-top', height);
+
+            //リンク　スクロール移動
+            $('a[href*="#"]').click(function (event) {
+                event.preventDefault();
+                let href = $(this).attr('href');
+                let position = $(href).offset().top - height;
+                $('html,body').animate({ scrollTop: position }, 1000, 'swing');
+                return false;
+            });
+
+            //TOP 転職したいゲージ
+            $('.gauge').css('transition', '10s linear').width('100%');
+
+            // 具体的な転職手順 GBA
+            $('.start-btn').one("click", function () {
+                $('section:nth-of-type(2) > div:nth-of-type(2)').toggle();
+                $(window).scrollTop($('#status-menu').position().top - height);
+            });
+            $('.open-job-menu').one("click", function () {
+                $('section:nth-of-type(2) >div:nth-of-type(3)').toggle();
+                $(window).scrollTop($('.job-menu').position().top - height);
+            });
+
+            //具体的な転職手順 job-menu
+            $('.job1-5 > div> img, .job6-10 > div >img, .job11-15 > div > img').mouseover(function () {
+                $('.job-img').attr('src', $(this).attr('src'));
+                $('.job-name').text($(this).attr('alt'));
+                $('.proficiency').text($(this).attr('data-job-level'));
+                $('.ability').text($(this).attr('data-ability'));
+            }).mouseout(function () {
+                $('.job-img').attr('src', 'images/mushoku.png');
+                $('.job-name').text('無職');
+                $('.proficiency').text('10 MASTER!!');
+                $('.ability').text('怠惰で自堕落な生活');
+            });
+
+
+
+            $('input[type="text"],input[name="full-name"],input[name="city-name"],input[name="address"],input[name="telNum"],input[name="posCode"]').one('focus', function () {
+            }).blur(function () {
+                if ($(this).val() === '') {
+                    $(this).css({ 'background': 'pink', 'border': '2px solid red' });
+                    $(this).next().show();
+                } else {
+                    $(this).css({ 'background': 'white', 'border': '1px solid black' });
+                    $(this).next().hide();
+                }
+            });
+
+
+        });
+
+    </script>
+</head>
+
+<body>
+    <div class="navi-wrapper navi-change">
+        <ul class="navi-header">
+            <li><a href="#one">トップ</a></li>
+            <li><a href="#two">具体的な転職手順</a></li>
+            <li><a href="#three">今までの転職との違い</a></li>
+            <li><a href="#four">お客様の声</a></li>
+            <li><a href="#five">よくある質問</a></li>
+            <li><a href="#six">注文フォーム</a></li>
+            <li><a href="#seven">購入を迷っている方へ</a></li>
+        </ul>
+    </div>
+    <main>
+        <section class="top" id="one">
+            <div>
+                <h1 class="menuStyle">JCA(Job Change Adventure)</h1>
+            </div>
+            <div class="top-content">
+                <h2>JCAは「転職」について学べるゲームです</h2>
+                <ul>
+                    <li>発売から30年、媒体を変えて<br>何度も再販を繰り返す超ロングセラー</li>
+                    <li>初版で240万人以上にプレイされた<br>圧倒的な実績</li>
+                    <li>今、あなたの転職に必要なのは<br>「JCA」を購入する決断力です。</li>
+                </ul>
+            </div>
+            <div class="menu">
+                <div class="menuStyle lef">
+                    <p class="item">メニュー</p>
+                    <ul class="navi">
+                        <li><a href="#two">具体的な転職の手順</a></li>
+                        <li><a href="#three">今までの転職との違い</a></li>
+                        <li><a href="#four">お客様の声</a></li>
+                        <li><a href="#five">よくある質問</a></li>
+                        <li><a href="#six">注文フォーム</a></li>
+                        <li><a href="#seven">購入を迷っている方へ</a></li>
+                    </ul>
+                </div>
+                <div class="menuStyle cen">
+                    <p class="item">転職する理由</p>
+                    <ul class="teki">
+                        <li>給与が低い</li>
+                        <li>将来への不安</li>
+                        <li>仕事内容</li>
+                        <li>人間関係</li>
+                        <li>休みが少ない</li>
+                    </ul>
+                </div>
+                <div class="menuStyle rig">
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th class="item">HP</th>
+                            <th class="item">転職したいゲージ</th>
+                        </tr>
+                        <tr>
+                            <td>あなた</td>
+                            <td>100</td>
+                            <td class="gauge-wrap"><span class="gauge"></span></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <section id="two">
+            <h2>具体的な転職の手順</h2>
+
+            <div class="curve">
+                <div class="game-wrapper">
+                    <div class="cursor-wrapper">
+                        <div class="cursor-top crsr-btn">▲</div>
+                        <div class="cursor-left crsr-btn">▲</div>
+                        <div class="cursor-center crsr-btn"><span>●</span></div>
+                        <div class="cursor-right crsr-btn">▲</div>
+                        <div class="cursor-bottom crsr-btn">▲</div>
+                    </div>
+                    <div class="monitor-wrapper">
+                        <div class="monitor">
+                            <div class="inner-monitor">
+                                <p>転職への第一歩</p>
+                                <p>まずはメニューを開いてみましょう。<br>
+                                    スタートボタンを押してください。<br>
+                                    ※バトル(仕事)中は非推奨です。</p>
+                            </div>
+                        </div>
+                        <div class="slbl">
+                            <div><span class="lbl1">SELECT</span></div>
+                            <div><span class="lbl2">START</span></div>
+                        </div>
+                        <div class="sbtn">
+                            <button class="sbtns"></button>
+                            <button class="sbtns start-btn"></button>
+                        </div>
+                    </div>
+                    <div class="btn-wrapper">
+                        <div class="btns">
+                            <div class="btn a-btn">A</div>
+                            <div class="btn b-btn">B</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="menu-wrapper" id="status-menu">
+                    <div class="status menuStyle">
+                        <div>
+                            <div>
+                                <dl>
+                                    <dt>あなた</dt>
+                                    <dd>35レベル(歳)</dd>
+                                </dl>
+                                <img src="images/mushoku.png" alt="無職">
+                            </div>
+                            <div>
+                                <p>職業</p>
+                                <p>LV</p>
+                                <p>HP</p>
+                                <p>MP</p>
+                            </div>
+                            <div>
+                                <p>無職</p>
+                                <p>10 MASTER!!</p>
+                                <p>100/100</p>
+                                <p>50/50</p>
+                            </div>
+                        </div>
+                        <div>
+                            <p>「ジョブ」を選択してください</p>
+                        </div>
+                    </div>
+                    <div class="job menuStyle">
+                        <p class="open-job-menu">ジョブ</p>
+                        <p>アビリティ</p>
+                    </div>
+                    <div class="etc menuStyle">
+                        <p>アイテム</p>
+                        <p>まほう</p>
+                        <p>そうび</p>
+                        <p>ステータス</p>
+                        <p>コンフィグ</p>
+                        <p>セーブ</p>
+                    </div>
+                    <div class="time menuStyle">
+                        <p>TIME</p>
+                        <p class="count-up-timer">00:00:00</p>
+                    </div>
+                    <div class="money menuStyle">
+                        <p>所持金</p>
+                        <p>0円</p>
+                    </div>
+                </div>
+            </div>
+            <div class="job-menu">
+                <div class="menuStyle">
+                    <div>
+                        <img src="images/mushoku.png" alt="無職">
+                        <div>
+                            <p>あなた</p>
+                            <p>35レベル(歳)</p>
+                        </div>
+                        <div>
+                            <p>無職</p>
+                            <p>LV10 MASTER!!</p>
+                        </div>
+                    </div>
+
+                    <div class="menuStyle">
+                        <div class="job1-5">
+                            <div><img src="images/kaizokuou.png" alt="海賊王" data-job-level="1" data-ability="仲間を募る">
+                            </div>
+                            <div><img src="images/shatyou.png" alt="社長" data-job-level="1" data-ability="いつでも謙虚"></div>
+                            <div><img src="images/shuhu.png" alt="専業主夫" data-job-level="1" data-ability="相手を思いやる"></div>
+                            <div><img src="images/ultraman.png" alt="ウルトラマン" data-job-level="2" data-ability="少年の心">
+                            </div>
+                            <div><img src="images/youtuber.png" alt="ユーチューバー" data-job-level="1" data-ability="演技力">
+                            </div>
+                        </div>
+                        <div class="job6-10">
+                            <div><img src="images/shopping.png" alt="転売ヤー" data-job-level="3" data-ability="単純作業の鬼">
+                            </div>
+                            <div><img src="images/kami.png" alt="神" data-job-level="1" data-ability="全知全能"></div>
+                            <div><img src="images/job_musician.png" alt="ミュージシャン" data-job-level="1"
+                                    data-ability="かき鳴らす"></div>
+                            <div><img src="images/haisya.png" alt="歯医者" data-job-level="1" data-ability="口内ケア"></div>
+                            <div><img src="images/freelance.png" alt="フリーランス" data-job-level="2" data-ability="人と場所を選ぶ">
+                            </div>
+                        </div>
+                        <div class="job11-15">
+                            <div><img src="images/blogger.png" alt="ブロガー" data-job-level="2" data-ability="文字の魔術師">
+                            </div>
+                            <div><img src="images/chef.png" alt="料理人" data-job-level="1" data-ability="在庫でやりくり"></div>
+                            <div><img src="images/chounouryoku.png" alt="超能力者" data-job-level="1"
+                                    data-ability="ハッタリをかます"></div>
+                            <div><img src="images/daiku.png" alt="大工" data-job-level="2" data-ability="測る、切る、張る"></div>
+                            <div><img src="images/fishing.png" alt="釣り人" data-job-level="1" data-ability="食料調達"></div>
+                        </div>
+                    </div>
+                    <div class="menuStyle">
+                        <img src="images/mushoku.png" alt="無職" class="job-img">
+                        <p>ジョブ名:<span class="job-name">無職</span>
+                            <br>訓練度：LV<span class="proficiency">10-MASTER!</span>
+                        </p>
+                        <p>アビリティ：<br><span class="ability">怠惰で自堕落な生活</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="three">
+            <h2>今までの転職との違い</h2>
+            <ul class="dif-flex">
+                <li>
+                    <div>
+                        <p>いつでも</p>
+                        <p>どこでも</p>
+                        <p>転職可能</p>
+                    </div>
+                    <p>JCAなら通勤電車の中や休日に自宅でゴロゴロしながら、いつでもどこでも転職可能です。<br>
+                        初心者は仕事以外の時間を推奨しています。<br>
+                        上級者だと、仕事中に転職してしまう猛者もいます。
+                    </p>
+                </li>
+                <li>
+                    <div>
+                        <p>転職活動が</p>
+                        <p>一瞬で</p>
+                        <p>終わる</p>
+                    </div>
+                    <p>
+                        今までの転職活動といえば、履歴書に職務経歴書の作成。<br>
+                        そのために自分の経歴を棚卸してまとめて、業界・会社研究をして、志望動機を考えます。<br>
+                        JCAでは上記すべて必要ありません。
+                    </p>
+                </li>
+                <li>
+                    <div>
+                        <p>職業の</p>
+                        <p>切替は</p>
+                        <p>自由自在</p>
+                    </div>
+                    <p>時として自分の業務外の仕事をしなくてはなりません。<br>
+                        しかし、JCAならその場で転職。<br>
+                        一時的に事務員として仕事にあたれます。
+                    </p>
+                </li>
+            </ul>
+        </section>
+        <section id="four">
+            <h2>お客様の声</h2>
+            <div class="customer">
+                <div>
+                    <img src="images/nouka.jpg" alt="農家の画像">
+                    <div>
+                        <p>ゲーム内で職業を極めてから離職。<br>
+                            すると離職した職業の能力が「素の自分(すっぴん)」に還元されるのが深いなあと思いました。<br>
+                            無職なのに、前職の技が使えるのは激熱です。<br>
+                            すっぴんとは最弱にして最強なのですね。
+                        </p>
+                        <p>
+                            今は4年働いた会社を退職し、農家になる準備をしています。<br>
+                            JCAをプレイしてよかったです。
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <img src="images/coach.jpg" alt="コーチングの画像">
+                    <div>
+                        <p>
+                            ゲームだから選べる職業は決まっているけど、自分の人生に置き換えると選択肢が広がります。<br>
+                            最初からすべての職業が解放されていないところも「人生」っぽくてGOODです。
+                        </p>
+                        <p>
+                            今までずっと気になっていたコーチングの分野に乗り出しました。<br>
+                            まだ報酬は発生していませんが、自信をもって「コーチングをやっています！」と自己紹介しています。
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <img src="images/illustrator.jpg" alt="イラストレーターの画像" width-="">
+                    <div>
+                        <p>
+                            まさかゲームで転職の考え方が学べるだなんて驚きです。
+                            LPで情報を見ているだけだと胡散臭く感じますが、いざJCAをプレイすると「こういうことか」と合点がいきました。
+                            転職に限らず、副業やパラレルワークにも使える考え方で、友人にも勧めています。
+                        </p>
+                        <p>
+                            今は会社員との兼業で、イラストレーターとして活動中です。
+                            活動開始からまだ3カ月目ですが、月単位で売上額は更新中です。目指せ独立、JCA様様。
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section>
+
+        </section>
+        <section id="five">
+            <h2>よくある質問</h2>
+            <div class="q-and-a">
+                <p class="question">なぜGBA版が最も高いのですか？価格設定がおかしくありませんか？</p>
+                <div class="answer">
+                    <p>
+                        価格設定は適切です。<br>
+                        モノには需要と供給があります。<br>
+                        価格を決めているのは市場であり、わたくしどもではありません。<br>
+                        供給量が少なく、需要があるものは自然と価格が高くなるものです。
+                    </p>
+                    <p>
+                        テーマパークも宿泊施設もシーズンごとの料金を設定しています。<br>
+                        閑散期と繁忙期では、需要と供給に大きな偏りがあるためです。
+                    </p>
+                    <p>
+                        製品価格は市場の動向により適宜改定していく予定です。<br>
+                        3年前から価格改定し、今の価格となっています。<br>
+                        今より数年後、さらに価格は上がっていることが予想されます。<br>
+                        購入を考えている方はお早めの購入をお考え下さい。
+
+                    </p>
+
+                </div>
+                <p class="question">ほかのサイトでは取り扱いのあるPS版やDS版は取り扱わないんですか？そっちの方が欲しいのですが。</p>
+                <div class="answer">
+                    <p>
+                        当サイトで取り扱うのはSFC版、スマホ版、GBA版の3種のみとなります。<br>
+                        上記3種を取り扱う理由は下記です。
+                    </p>
+                    <dl>
+                        <dd>SFC版</dd>
+                        <dt>元祖JCA。動作もサクサクで快適にプレイできます。導入コストは最安です。</dt>
+                        <dd>スマホ版</dd>
+                        <dt>毎日使うスマホで完結するのが売り。転職をより身近に感じていただけます。</dt>
+                        <dd>GBA版</dd>
+                        <dt>やりこみ要素が増えました。スマホ版はバッテリーの消費が激しいので、別の方法として提示。<br>ソフト自体にもプレミア価格がついており、資産性あり。</dt>
+                    </dl>
+                    <p>
+                        ほかの媒体ですと、例えばPS版はロード時間が長いのがネック。<br>
+                        現代はコンビニの待ち時間でもイライラしてしまう人がいるくらいです。<br>
+                        ロード時間の都度、イライラが募ってはプレイに集中できません。<br>
+                        DS版はアニメ要素が強くなり、「転職」よりも「ストーリー」に重きを置いた仕様となっています。<br>
+                        当サイトで紹介しているJCAとは、「転職」がメインであり、ストーリーはその次です。<br>
+                        よってDS版のお取り扱いはございません。
+                    </p>
+                </div>
+                <p class="question">スマホ版を購入したいのですが、どのようなオペレーションになっていますか？</p>
+                <div class="answer">
+                    <p>
+                        入金を確認次第、注文フォームで入力していただいたメールアドレスに、以下の3つを記載して送信します。
+                    </p>
+                    <ul>
+                        <li>QRコード</li>
+                        <li>ID</li>
+                        <li>パスワード</li>
+                    </ul>
+                    <p>
+                        QRコードよりダウンロードページに進んでいただき、IDとパスワードを入力。<br>
+                        JCAをダウンロードしてください。
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section id="six">
+            <h2>注文フォーム</h2>
+            <form action="#" method="post">
+                <table>
+                    <tr>
+                        <th>お名前</th>
+                        <td><input type="text" placeholder="浪速太郎" name="full-name">
+                            <p class="valspace">正しく入力してください</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>ふりがな</th>
+                        <td class="ruby">
+                            <div>
+
+                                <label>
+                                    姓<input type="text" placeholder="なにわ" name="first-name">
+                                    <p class="valspace">両方とも正しく入力してください</p>
+
+                                </label>
+                                
+                                <label>
+                                    名<input type="text" placeholder="たろう" name="last-name">
+                                    <p class="valspace">両方とも正しく入力してください</p>
+                                </label>
+                            </div>
+
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>メールアドレス</th>
+                        <td>
+                            <input type="email" placeholder="user@example.jp" name="address">
+                            <p class="valspace">正しく入力してください</p>
+                            <p>入力間違いが多くなっているため、確認をお願いします。</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>電話番号</th>
+                        <td><input type="tel" placeholder="080-1234-5678" name="telNum">
+                            <p class="valspace">正しく入力してください</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>郵便番号</th>
+                        <td>
+                            <label>
+                                〒<input type="text" placeholder="1638001" name="posCode">
+                                <p class="valspace">正しく入力してください</p>
+
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>住所</th>
+                        <td>
+                            <select name="city">
+                                <option value="" selected disabled>▼ 都道府県を選択してください</option>
+                                <option value="01">北海道</option>
+                                <option value="02">東京都</option>
+                                <option value="03">大阪府</option>
+                                <option value="04">愛知県</option>
+                                <option value="05">広島県</option>
+                                <option value="06">福岡県</option>
+                            </select>
+                            <input type="text" name="city-name">
+                            <p class="valspace">正しく入力してください</p>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>お支払い方法</th>
+                        <td>
+                            <div>
+                                <p><label><input type="radio" name="how-to-pay">銀行振込</label></p>
+                                <p><label><input type="radio" name="how-to-pay" checked>クレジットカード</label></p>
+                                <p><label><input type="radio" name="how-to-pay">代引き</label></p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>金額</th>
+                        <td>
+                            <div>
+                                <p><label><input name="hard" type="radio">SFC版:1,000円</label></p>
+                                <p><label><input name="hard" type="radio">スマホ版:3,000円</label></p>
+                                <p><label><input name="hard" type="radio" checked>GBA版:5,000円</label></p>
+                            </div>
+                            <p>(すべて税込)送料無料</p>
+                        </td>
+                    </tr>
+                </table>
+                <input type="submit" value="この内容で注文する">
+            </form>
+        </section>
+        <section id="seven">
+            <h2>購入を迷っておられる方へ</h2>
+            <p>
+                JCAは最も高いGBA版でも5,000円(税込)です。<br>
+                送料は無料。<br>
+                早い人は1週間もあればプレイを終えるでしょう。<br>
+                日割りで計算すると、(5,000円 ÷ 7日 = 700円)くらいです。<br>
+                1度のプレイだけでも充分に元が取れる商品価格ですが、転職は1回で終わりではありません。<br>
+                2度や3度、はたまた数十回と転職を繰り返す方もいるでしょう。
+            </p>
+            <p>
+                転職とは転機であり、ステップアップ。<br>
+                あなたが転職を考えたとき、必ず悩みます。<br>
+                理由は様々で、「今の仕事が物足りない」や「家庭のこと」、「金銭的なこと」、「将来のこと」などです。<br>
+                天秤にかけるものが大事なものであるほど転職には二の足を踏んでしまいます。<br>
+                そこでJCAをプレイするというわけです。<br>
+                JCAを購入しておけば転職で悩んだときにいつでもプレイできます。
+            </p>
+            <p>
+                プレイの都度、転職の考え方を学んで大きく飛躍できるでしょう。<br>
+                人によってはプレイするたびに違った学びを得られるかもしれません。
+            </p>
+            <p>
+                スマホ版はいつでもダウンロード可能です。<br>
+                SFC版とGBA版は年々商品価格が高騰しています。<br>
+                あなたがJCAを欲しいと思ったときに適正価格である可能性は100％ではありません。<br>
+                何が言いたいかというと、<span>JCAを早く購入した方がお客様のメリットは最大化する</span>ということです。
+            </p>
+            <p>
+                SFC版は240万人にプレイされています。<br>
+                JCAは媒体を変えて何度も再販売されています。<br>
+                なぜ何度も再販売されるのでしょうか？<br>
+                理由は簡単。転職にはJCAの考え方が必要だからです。<br>
+                JCAを購入した人が直接言ったわけではありません。<br>
+                しかし「転職には転職の考え方が必要だ」と自然に求めているのです。<br>
+                終身雇用が当たり前だった1992年からJCAは存在しています。<br>
+                今の日本の雇用状態を見越していたのかもしれません。
+
+            </p>
+            <p>
+                転職活動のやり方は自由。<br>
+                孤独にやるもよし、コンサルタントに相談しながらやるのもよし。<br>
+                JCAは転職に対する新しい提案をしています。<br>
+                たかがゲームといえど、馬鹿にはできません。<br>
+                ゲームからも学びはあるのです。
+            </p>
+            <p>
+                長寿化が進み、現在20歳の人が定年を迎えるのは70歳になるかもしれません。<br>
+                年数にして50年。約18,000日となります。<br>
+                人生の大半をささげる仕事だからこそ、転職で悩む時間を減らし、やるべきことに集中しましょう。<br>
+                商品には自信を持っています。<br>
+                <span>JCAを通して「真の自分の人生」を手に入れ、歩んでください。</span>
+            </p>
+            <p>
+                それでは、JCAの中でお待ちしています。
+            </p>
+            <div>
+                JCA開発チーム一同
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

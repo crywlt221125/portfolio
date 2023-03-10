@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex,nofollow" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Noto+Serif+JP:wght@200&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css">    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>    <script>
+        // const $ = jQuery.noConflict();
+        $(function () {
+            
+            $('.slider').slick({
+                autoplay: true,
+                arrows: false,
+                vertical: true,
+                speed: 1000
+            });
+
+
+            $('input[type="text"],input[type="email"],textarea').blur(function(){
+                if ($(this).val() === '') {
+                    $(this).next().show();
+                } else {
+                    $(this).css({ 'background': '#eee', 'border': '1px solid black' });
+                    $(this).next().hide();
+                }
+            });
+        });
+    </script>
+
+    <title>Sugi's Portfolio Site</title>
+</head>
+
+<body>
+  
+    <main>
+        <header>
+            <h1><a href="#index" class="anker">Portfolio</a></h1>
+            <ul>
+                <li><a href="#work" class="anker">Works</a></li>
+                <li><a href="#contact" class="anker">Contact</a></li>
+            </ul>
+        </header>
+        <section id="index">
+            <p class="site-top">オオサカ</p>
+            <div class="slider">
+                <div class="job">
+                    Web designer
+                </div>
+                <div class="job">
+                    Web Writer
+                </div>
+                <div class="job">
+                    Bloger
+                </div>
+                <div class="job">
+                    Programmer
+                </div>
+            </div>
+            <p class="site-top">タロウ</p>
+        </section>
+
+
+
+
+
+        <section id="work">
+            <p>当サイトは以下のサイトを参考にしています。</p>
+            <ol>
+                <li>http://www.musubime.jp/</li>
+                <li>http://maima.me/</li>
+                <li>https://ja.webcreatormana.com/</li>
+            </ol>
+            <p>
+                <br>
+                <a href="works/job-change/index.html">
+                    制作実績1<br><img src="images/work1.png" alt="制作実績1" class="works_img">
+                </a>
+            </p>
+        </section>
+
+
+
+        <section id="contact">
+            <p>
+                お問い合わせは下記のこちらのフォームからお願いします。<br>
+            </p>
+            <form action="#" method="post">
+                <div class="form-flex">
+                    <div class="form-flex-left">
+                        <div class="inp-text">
+                            <input type="text" placeholder="お名前" name="name">
+                            <p class="emp">Plese enter your infomation</p>
+                        </div>
+                        <div class="inp-email">
+                            <input type="email" placeholder="メールアドレス" name="email">
+                            <p class="emp">Plese enter your infomation</p>
+                        </div>
+                    </div>
+                    <div class="form-flex-right">
+                        <textarea name="content" cols="40" rows="4" placeholder="お問い合わせ"></textarea>
+                        <p class="emp">Plese enter your infomation</p>
+                    </div>
+                </div>
+                <input type="submit" value="送信" class="button">
+            </form>
+        </section>
+        <footer>
+            <small>&copy;2023 Taro Oosaka</small>
+        </footer>
+    </main>
+
+
+</body>
+
+</html>
